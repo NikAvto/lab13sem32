@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="lab13sem32.ScientistPage">
+
+    <FlexLayout Direction="Column">
+        <VerticalStackLayout Padding="10" FlexLayout.Basis="400">
+            <Label Text="Научные сотрудники:"/>
+            <Entry x:Name="name2EntryField" Placeholder="Name"/>
+            <Entry x:Name="fieldsofstudyEntryField" Placeholder="Fields of study"/>
+            <Button x:Name="save2Button" Text="Save" Clicked="save2Button_Clicked"/>
+        </VerticalStackLayout>
+        <ListView x:Name="list2View" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="list2View_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <VerticalStackLayout Padding="5">
+                            <Label Text="{Binding ScientistsName}"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition  Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text="{Binding Name}"/>
+                                <Label Grid.Column="2" Text="{Binding FieldOfStudy}"/>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </FlexLayout>
+</ContentPage>

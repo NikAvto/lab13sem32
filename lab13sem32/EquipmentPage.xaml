@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="lab13sem32.EquipmentPage">
+    
+    <FlexLayout Direction="Column">
+        <VerticalStackLayout Padding="10" FlexLayout.Basis="400">
+            <Label Text="Оборудование:"/>
+            <Entry x:Name="name1EntryField" Placeholder="Name"/>
+            <Entry x:Name="type1EntryField" Placeholder="Type"/>
+            <Button x:Name="saveButton" Text="Save" Clicked="save1Button_Clicked"/>
+        </VerticalStackLayout>
+        <ListView x:Name="list1View" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="list1View_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <VerticalStackLayout Padding="5">
+                            <Label Text="{Binding EquipmentName}"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition  Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text="{Binding Name}"/>
+                                <Label Grid.Column="2" Text="{Binding Type}"/>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </FlexLayout>
+</ContentPage>
